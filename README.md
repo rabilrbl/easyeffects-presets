@@ -4,20 +4,6 @@ Custom audio enhancement presets for [EasyEffects](https://github.com/wwmm/easye
 
 ## AudioFX Balanced
 
-General-purpose enhancement chain with simple compression. Subtle and safe for all content.
-
-**Pipeline: Compressor → Bass Enhancer → Crystalizer → Stereo Tools → Limiter**
-
-| Plugin | Purpose | Key Settings |
-|--------|---------|-------------|
-| Compressor | Tames loud peaks, lifts quiet detail | Downward, ratio 2:1, threshold -18dB, RMS |
-| Bass Enhancer | Adds harmonic bass richness | Amount 12, scope 80Hz, harmonics 8.19 |
-| Crystalizer | Sharpens transients and clarity | Progressive intensity (-2 to -14) |
-| Stereo Tools | Subtle stereo width expansion | Width 0.8, base 0.15 |
-| Limiter | Safety ceiling — no clipping | Herm Thin, threshold -1dB |
-
-## AudioFX Pro
-
 DFX-inspired processing with 6-band multiband compression. Upward compression on sub-bass and highs restores what lossy encoding cuts; downward compression on mids keeps things controlled.
 
 **Pipeline: Multiband Compressor → Bass Enhancer → Crystalizer → Stereo Tools → Limiter**
@@ -30,14 +16,28 @@ DFX-inspired processing with 6-band multiband compression. Upward compression on
 | Stereo Tools | Spatial width | 3D Surround + Ambience | Width 0.8, base 0.15 |
 | Limiter | Brick-wall protection | — | Herm Thin, threshold -1dB |
 
+## AudioFX Balanced Legacy
+
+Original preset with simple single-band compression. Subtle and safe for all content.
+
+**Pipeline: Compressor → Bass Enhancer → Crystalizer → Stereo Tools → Limiter**
+
+| Plugin | Purpose | Key Settings |
+|--------|---------|-------------|
+| Compressor | Tames loud peaks, lifts quiet detail | Downward, ratio 2:1, threshold -18dB, RMS |
+| Bass Enhancer | Adds harmonic bass richness | Amount 12, scope 80Hz, harmonics 8.19 |
+| Crystalizer | Sharpens transients and clarity | Progressive intensity (-2 to -14) |
+| Stereo Tools | Subtle stereo width expansion | Width 0.8, base 0.15 |
+| Limiter | Safety ceiling — no clipping | Herm Thin, threshold -1dB |
+
 ## AudioFX Music
 
 Tuned for music listening. Punchier MBC on the mid-bass band for kick drum impact, wider stereo for immersion, and stronger crystalizer with a V-shape curve (peaks in upper mids/highs, dips in very high frequencies to avoid fatigue).
 
 **Pipeline: Multiband Compressor → Bass Enhancer → Crystalizer → Stereo Tools → Limiter**
 
-| Plugin | Difference from Pro |
-|--------|-------------------|
+| Plugin | Difference from Balanced |
+|--------|--------------------------|
 | MBC | Tighter ratio on mid-bass (2.0), more upward on sub-bass (1.2), faster attacks |
 | Bass Enhancer | Amount 16, scope 120Hz, harmonics 9 |
 | Crystalizer | V-shape: strong mid-high peak (-15), tapers back above 8kHz to reduce fatigue |
@@ -50,8 +50,8 @@ Optimized for movies/TV. Aggressive compression keeps dialogue audible over expl
 
 **Pipeline: Multiband Compressor → Bass Enhancer → Crystalizer → Stereo Tools → Limiter**
 
-| Plugin | Difference from Pro |
-|--------|-------------------|
+| Plugin | Difference from Balanced |
+|--------|--------------------------|
 | MBC | Softer knee on dialogue band (300Hz–2kHz, ratio 2.8), stronger upward on sub-bass for LFE rap, very fast high-band attack for transient clarity |
 | Bass Enhancer | Amount 20, scope 150Hz, harmonics 10 — maximum bass for cinematic LFE |
 | Crystalizer | Gentle curve (-1 to -7, then tapering back up to -2) — dialogue clarity without harshness |
