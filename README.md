@@ -4,7 +4,7 @@ Custom audio enhancement presets for [EasyEffects](https://github.com/wwmm/easye
 
 ## AudioFX Balanced
 
-General-purpose enhancement chain designed as a Linux alternative to Windows AudioFX / DFX Audio Enhancer. Optimized for use with external USB DACs.
+A balanced enhancement chain designed as a Linux alternative to Windows AudioFX / DFX Audio Enhancer. Optimized for use with external USB DACs.
 
 **Pipeline: Compressor → Bass Enhancer → Crystalizer → Stereo Tools → Limiter**
 
@@ -16,48 +16,35 @@ General-purpose enhancement chain designed as a Linux alternative to Windows Aud
 | Stereo Tools | Subtle stereo width expansion | Width 0.8, base 0.15 |
 | Limiter | Safety ceiling — no clipping | Herm Thin, threshold -1dB |
 
-## AudioFX MBC
+### Installation
 
-6-band multiband compressor variant with DFX-inspired upward compression on sub-bass and highs. More aggressive processing — useful if you want heavier dynamics control.
-
-**Pipeline: Multiband Compressor → Bass Enhancer → Crystalizer → Stereo Tools → Limiter**
-
-| Plugin | Difference from Balanced |
-|--------|--------------------------|
-| Multiband Compressor (6-band) | Upward on sub-bass & highs, downward on mids — frequency-aware dynamics |
-| Bass Enhancer | Amount 14, scope 100Hz, harmonics 8.5 |
-| Crystalizer | Same progressive intensity |
-| Stereo Tools | Same stereo width |
-| Limiter | Same threshold |
-
-## Installation
-
-1. Copy the preset `.json` files to your EasyEffects output presets directory:
+1. Copy `AudioFX Balanced.json` to your EasyEffects output presets directory:
    ```bash
    # Flatpak
-   cp AudioFX*.json ~/.var/app/com.github.wwmm.easyeffects/data/easyeffects/output/
+   cp "AudioFX Balanced.json" ~/.var/app/com.github.wwmm.easyeffects/data/easyeffects/output/
 
    # Native package
-   cp AudioFX*.json ~/.config/easyeffects/output/
+   cp "AudioFX Balanced.json" ~/.config/easyeffects/output/
    ```
 
-2. Open EasyEffects → Presets → Select a preset
+2. Open EasyEffects → Presets → Select "AudioFX Balanced"
 
 ### Autoload
 
-To auto-apply a preset when a specific output device connects:
+To auto-apply this preset when a specific output device connects:
 
 1. Open EasyEffects → Presets → Autoloading tab
-2. Select a preset and your output device
+2. Select "AudioFX Balanced" and your output device
 3. Click "Add"
 
-## Tweaking
+### Tweaking
 
-- **More bass punch** → raise Bass Enhancer `amount`
-- **Less boomy** → lower `amount` or narrow `scope`
+- **More bass punch** → raise Bass Enhancer `amount` (12 → 16-20)
+- **Less boomy** → lower `amount` (12 → 6-8) or narrow `scope` below 80Hz
 - **More clarity** → lower Crystalizer intensity values (more negative = stronger)
-- **Wider soundstage** → raise Stereo Tools `stereo-width`
+- **Wider soundstage** → raise Stereo Tools `stereo-width` (0.8 → 1.0)
 - **More compression** → lower Compressor `threshold` or raise `ratio`
+- **Louder overall** → raise Limiter `threshold` toward 0dB
 
 ## License
 
