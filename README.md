@@ -16,33 +16,47 @@ A balanced enhancement chain designed as a Linux alternative to Windows AudioFX 
 | Stereo Tools | Subtle stereo width expansion | Width 0.8, base 0.15 |
 | Limiter | Safety ceiling — no clipping | Herm Thin, threshold -1dB |
 
-### Installation
+## AudioFX Pro
 
-1. Copy `AudioFX Balanced.json` to your EasyEffects output presets directory:
+Closer to the real DFX Audio Enhancer processing model. Uses multiband compression (upward on sub-bass and highs, downward on mids) to restore dynamics and detail lost to compression — matching DFX's Dynamic Boost and Fidelity effects.
+
+**Pipeline: Multiband Compressor → Bass Enhancer → Crystalizer → Stereo Tools → Limiter**
+
+| Plugin | Purpose | DFX Equivalent | Key Settings |
+|--------|---------|---------------|-------------|
+| Multiband Compressor (6-band) | Frequency-aware dynamics: upward on sub-bass & highs, downward on mids | Dynamic Boost + Fidelity | Bark-scale bands, RMS per-band |
+| Bass Enhancer | Sub-harmonic bass generation | Hyperbass | Amount 14, scope 100Hz, harmonics 8.5 |
+| Crystalizer | High-frequency detail restoration | Fidelity | Progressive intensity (-2 to -14) |
+| Stereo Tools | Spatial width | 3D Surround + Ambience | Width 0.8, base 0.15 |
+| Limiter | Brick-wall protection | — | Herm Thin, threshold -1dB |
+
+## Installation
+
+1. Copy the preset `.json` files to your EasyEffects output presets directory:
    ```bash
    # Flatpak
-   cp "AudioFX Balanced.json" ~/.var/app/com.github.wwmm.easyeffects/data/easyeffects/output/
+   cp AudioFX*.json ~/.var/app/com.github.wwmm.easyeffects/data/easyeffects/output/
 
    # Native package
-   cp "AudioFX Balanced.json" ~/.config/easyeffects/output/
+   cp AudioFX*.json ~/.config/easyeffects/output/
    ```
 
-2. Open EasyEffects → Presets → Select "AudioFX Balanced"
+2. Open EasyEffects → Presets → Select a preset
 
 ### Autoload
 
-To auto-apply this preset when a specific output device connects:
+To auto-apply a preset when a specific output device connects:
 
 1. Open EasyEffects → Presets → Autoloading tab
-2. Select "AudioFX Balanced" and your output device
+2. Select a preset and your output device
 3. Click "Add"
 
-### Tweaking
+## Tweaking
 
-- **More bass punch** → raise Bass Enhancer `amount` (12 → 16-20)
-- **Less boomy** → lower `amount` (12 → 6-8) or narrow `scope` below 80Hz
+- **More bass punch** → raise Bass Enhancer `amount`
+- **Less boomy** → lower `amount` or narrow `scope`
 - **More clarity** → lower Crystalizer intensity values (more negative = stronger)
-- **Wider soundstage** → raise Stereo Tools `stereo-width` (0.8 → 1.0)
+- **Wider soundstage** → raise Stereo Tools `stereo-width`
 - **More compression** → lower Compressor `threshold` or raise `ratio`
 
 ## License
