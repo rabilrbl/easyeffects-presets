@@ -4,21 +4,7 @@ Custom audio enhancement presets for [EasyEffects](https://github.com/wwmm/easye
 
 ## AudioFX Balanced
 
-DFX-inspired processing with 6-band multiband compression. Upward compression on sub-bass and highs restores what lossy encoding cuts; downward compression on mids keeps things controlled.
-
-**Pipeline: Multiband Compressor → Bass Enhancer → Crystalizer → Stereo Tools → Limiter**
-
-| Plugin | Purpose | DFX Equivalent | Key Settings |
-|--------|---------|---------------|-------------|
-| Multiband Compressor (6-band) | Frequency-aware dynamics: upward on sub-bass & highs, downward on mids | Dynamic Boost + Fidelity | Bark-scale bands, RMS per-band |
-| Bass Enhancer | Sub-harmonic bass generation | Hyperbass | Amount 14, scope 100Hz, harmonics 8.5 |
-| Crystalizer | High-frequency detail restoration | Fidelity | Progressive intensity (-2 to -14) |
-| Stereo Tools | Spatial width | 3D Surround + Ambience | Width 0.8, base 0.15 |
-| Limiter | Brick-wall protection | — | Herm Thin, threshold -1dB |
-
-## AudioFX Balanced Legacy
-
-Original preset with simple single-band compression. Subtle and safe for all content.
+General-purpose enhancement chain designed as a Linux alternative to Windows AudioFX / DFX Audio Enhancer. Optimized for use with external USB DACs.
 
 **Pipeline: Compressor → Bass Enhancer → Crystalizer → Stereo Tools → Limiter**
 
@@ -30,33 +16,19 @@ Original preset with simple single-band compression. Subtle and safe for all con
 | Stereo Tools | Subtle stereo width expansion | Width 0.8, base 0.15 |
 | Limiter | Safety ceiling — no clipping | Herm Thin, threshold -1dB |
 
-## AudioFX Music
+## AudioFX MBC
 
-Tuned for music listening. Punchier MBC on the mid-bass band for kick drum impact, wider stereo for immersion, and stronger crystalizer with a V-shape curve (peaks in upper mids/highs, dips in very high frequencies to avoid fatigue).
-
-**Pipeline: Multiband Compressor → Bass Enhancer → Crystalizer → Stereo Tools → Limiter**
-
-| Plugin | Difference from Balanced |
-|--------|--------------------------|
-| MBC | Tighter ratio on mid-bass (2.0), more upward on sub-bass (1.2), faster attacks |
-| Bass Enhancer | Amount 16, scope 120Hz, harmonics 9 |
-| Crystalizer | V-shape: strong mid-high peak (-15), tapers back above 8kHz to reduce fatigue |
-| Stereo Tools | Width 1.0, base 0.2 — wider for music |
-| Limiter | Input gain -1dB for extra headroom |
-
-## AudioFX Movie
-
-Optimized for movies/TV. Aggressive compression keeps dialogue audible over explosions, heavy bass enhancement for cinematic impact, maximum stereo width for immersion, and gentle crystalizer that preserves dialogue clarity without fatiguing highs.
+6-band multiband compressor variant with DFX-inspired upward compression on sub-bass and highs. More aggressive processing — useful if you want heavier dynamics control.
 
 **Pipeline: Multiband Compressor → Bass Enhancer → Crystalizer → Stereo Tools → Limiter**
 
 | Plugin | Difference from Balanced |
 |--------|--------------------------|
-| MBC | Softer knee on dialogue band (300Hz–2kHz, ratio 2.8), stronger upward on sub-bass for LFE rap, very fast high-band attack for transient clarity |
-| Bass Enhancer | Amount 20, scope 150Hz, harmonics 10 — maximum bass for cinematic LFE |
-| Crystalizer | Gentle curve (-1 to -7, then tapering back up to -2) — dialogue clarity without harshness |
-| Stereo Tools | Width 1.3, base 0.25 — maximum immersive width |
-| Limiter | Input gain -2dB, attack 3ms, release 8ms — catches explosive transients |
+| Multiband Compressor (6-band) | Upward on sub-bass & highs, downward on mids — frequency-aware dynamics |
+| Bass Enhancer | Amount 14, scope 100Hz, harmonics 8.5 |
+| Crystalizer | Same progressive intensity |
+| Stereo Tools | Same stereo width |
+| Limiter | Same threshold |
 
 ## Installation
 
@@ -86,7 +58,6 @@ To auto-apply a preset when a specific output device connects:
 - **More clarity** → lower Crystalizer intensity values (more negative = stronger)
 - **Wider soundstage** → raise Stereo Tools `stereo-width`
 - **More compression** → lower Compressor `threshold` or raise `ratio`
-- **Louder overall** → raise Limiter `threshold` toward 0dB
 
 ## License
 
